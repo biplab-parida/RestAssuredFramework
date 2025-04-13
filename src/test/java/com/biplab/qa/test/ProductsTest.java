@@ -12,7 +12,7 @@ public class ProductsTest {
 
     @Test
     public void verifyCreateProducts() {
-        String filePath = "src/test/resources/Products.json";
+        String filePath = "src/test/resources/products/Products.json";
 //    JsonObject body = JsonUtil.readJsonFile(filePath);
         String strBody = StringUtil.readFile(filePath);
         Response res = ProductService.createProducts(strBody);
