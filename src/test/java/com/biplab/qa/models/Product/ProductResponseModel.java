@@ -37,6 +37,12 @@ public class ProductResponseModel {
     String title;
     double price;
     double discountPercentage;
+
+    public int getStock() {
+        return stock;
+    }
+
+    int stock;
     double rating;
     String description;
     String brand;

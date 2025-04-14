@@ -3,6 +3,7 @@ package com.biplab.qa.services;
 import com.biplab.qa.models.Product.ProductBodyModel;
 import com.biplab.qa.models.Product.ProductDBModel;
 import com.biplab.qa.utils.DBUtils;
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 
 import java.sql.Connection;
@@ -17,6 +18,7 @@ public class ProductService {
     public static String PRODUCT_URL = BASE_URL + "products";
     public static String ADD_PRODUCT_URL = PRODUCT_URL + "/add";
 
+    @Step("Executing POST Request")
     public static Response createProducts(String body) {
         Response res = given()
                 .baseUri(ADD_PRODUCT_URL)
@@ -25,7 +27,7 @@ public class ProductService {
                 .post();
         return res;
     }
-
+    @Step("Executing POST Request with Model")
     public static Response createProducts(ProductBodyModel body) {
         Response res = given()
                 .baseUri(ADD_PRODUCT_URL)

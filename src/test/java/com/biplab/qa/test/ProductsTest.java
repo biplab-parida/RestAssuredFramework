@@ -7,10 +7,14 @@ import com.biplab.qa.utils.StringUtil;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import io.qameta.allure.*;
+
 
 public class ProductsTest {
-
-    @Test
+    @TmsLink("RP-12345")
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("RP-123")
+    @Test(groups = {"sanity"}, description = "Verify creation of new products")
     public void verifyCreateProducts() {
         String filePath = "src/test/resources/products/Products.json";
 //    JsonObject body = JsonUtil.readJsonFile(filePath);
@@ -28,7 +32,10 @@ public class ProductsTest {
 
     }
 
-    @Test
+    @Test(groups = {"smoke"},description = "Create product with Model")
+    @TmsLink("RP-12346")
+    @Severity(SeverityLevel.MINOR)
+    @Story("RP-124")
     public void verifyCreateProducts2() {
         ProductBodyModel body = new ProductBodyModel()
                 .setTitle("test")
